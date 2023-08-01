@@ -45,7 +45,7 @@ public class SellerDaoJDBC implements SellerDao {
                 throw new DbException("Unexpected error! No Rows affected");
             }
         }catch (SQLException e){
-            throw new DbException("Deu ruim viado! "+ e.getMessage());
+            throw new DbException(e.getMessage());
         }finally {
             DB.closeStatment(st);
         }
@@ -205,13 +205,10 @@ public class SellerDaoJDBC implements SellerDao {
         seller.setDepartment(dp);
         return seller;
     }
-
     private Department instantiateDepartment(ResultSet rs) throws SQLException {
         Department dp = new Department();
         dp.setId(rs.getInt("DepartmentId"));
         dp.setName(rs.getString("DepName"));
         return dp;
     }
-
-
 }
