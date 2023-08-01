@@ -13,9 +13,7 @@ public class Program {
         Department obj = new Department(1,"Bola");
         System.out.println(obj);
 
-        Seller seller = new Seller(1,"Gabriel","gabriel@gmail.com", LocalDate.now(),3000.0,obj);
+        Seller seller = DaoFactory.createSellerDao().findById(3);
         System.out.println(seller);
-
-        SellerDao sellerDao = DaoFactory.createSellerDao();
     }
 }
