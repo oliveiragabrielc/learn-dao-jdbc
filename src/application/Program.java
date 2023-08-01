@@ -26,10 +26,12 @@ public class Program {
        // System.out.println("Inserted! New id = " + seller1.getId());
         System.out.println();
 
-        Seller seller1 = DaoFactory.createSellerDao().findById(14);
-        seller1.setEmail("gabs@gmail.com");
-        DaoFactory.createSellerDao().update(seller1);
-        System.out.println("Altered! New id = " + seller1.getId());
+//        Seller seller1 = DaoFactory.createSellerDao().findById(14);
+//        seller1.setEmail("gabs@gmail.com");
+//        DaoFactory.createSellerDao().update(seller1);
+//        System.out.println("Altered! New id = " + seller1.getId());
+
+        DaoFactory.createSellerDao().deleteById(14);
 
     }
 }
