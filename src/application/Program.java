@@ -3,10 +3,14 @@ package application;
 import model.dao.DaoFactory;
 import model.entities.Department;
 import model.entities.Seller;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         Department obj = new Department(1,"Bola");
         System.out.println(obj);
@@ -17,9 +21,8 @@ public class Program {
         Department dp = new Department(2,null);
         List<Seller> listSeller = DaoFactory.createSellerDao().findAll();
 
-
-        for (Seller seller1 : listSeller) {
-            System.out.println(seller1);
-        }
+        Seller seller1 = new Seller(null,"Gabriel","gabriel@gmail.com",LocalDate.parse("04/04/1994", fmt),3000.00,dp);
+        DaoFactory.createSellerDao().insert(seller1);
+        System.out.println("Inserted! New id = " + seller1.getId());
     }
 }
